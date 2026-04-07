@@ -8,12 +8,12 @@
 body {
   background: linear-gradient(120deg, #ffd6e8, #fff0f5);
   overflow-x: hidden;
-  cursor: crosshair;
 }
 
-/* HEADER */
-header {
-  height: 100vh;
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,13 +22,19 @@ header {
 }
 
 h1 {
-  font-size: 60px;
   color: #ff2e63;
+  font-size: clamp(32px, 8vw, 64px);
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: clamp(16px, 4vw, 22px);
+  max-width: 600px;
 }
 
 button {
   margin-top: 25px;
-  padding: 15px 30px;
+  padding: 14px 28px;
   border: none;
   border-radius: 30px;
   background: #ff2e63;
@@ -43,25 +49,29 @@ button:hover {
 }
 
 /* Secret Message */
-#secret {
+.secret {
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 18px;
   max-width: 600px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Gift Box */
+/* Gift */
 .gift {
-  width: 120px;
+  width: clamp(90px, 25vw, 140px);
+  margin-top: 35px;
   cursor: pointer;
-  margin-top: 40px;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 .gift:hover {
   transform: rotate(10deg) scale(1.1);
 }
 
-/* Messages */
+/* Floating Messages */
 .message {
   position: fixed;
   background: white;
@@ -70,6 +80,7 @@ button:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   animation: fade 6s forwards;
   z-index: 1000;
+  font-size: 14px;
 }
 
 @keyframes fade {
@@ -89,15 +100,6 @@ button:hover {
   }
 }
 
-/* Canvas drawing */
-#paint {
-  border: 3px dashed #ff2e63;
-  margin: 50px auto;
-  display: block;
-  background: white;
-  border-radius: 15px;
-}
-
 /* Confetti */
 .confetti {
   position: fixed;
@@ -111,10 +113,4 @@ button:hover {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;
   }
-}
-
-/* Title */
-.draw-title {
-  text-align: center;
-  color: #ff2e63;
 }

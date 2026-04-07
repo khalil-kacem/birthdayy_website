@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 export default function App() {
   const [showSecret, setShowSecret] = useState(false);
-  const canvasRef = useRef(null);
-  const paintingRef = useRef(false);
 
   // Floating messages
   useEffect(() => {
@@ -33,41 +31,8 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Canvas drawing
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    const draw = (e) => {
-      if (!paintingRef.current) return;
-      ctx.lineWidth = 4;
-      ctx.lineCap = "round";
-      ctx.strokeStyle = "#ff2e63";
-      ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    };
-
-    const startPaint = () => (paintingRef.current = true);
-    const stopPaint = () => {
-      paintingRef.current = false;
-      ctx.beginPath();
-    };
-
-    canvas.addEventListener("mousedown", startPaint);
-    canvas.addEventListener("mouseup", stopPaint);
-    canvas.addEventListener("mousemove", draw);
-
-    return () => {
-      canvas.removeEventListener("mousedown", startPaint);
-      canvas.removeEventListener("mouseup", stopPaint);
-      canvas.removeEventListener("mousemove", draw);
-    };
-  }, []);
-
   const openGift = () => {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 120; i++) {
       const conf = document.createElement("div");
       conf.className = "confetti";
       conf.style.left = Math.random() * 100 + "vw";
@@ -79,14 +44,16 @@ export default function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className="hero">
         <h1>Happy Birthday Manu 🎨💖</h1>
-        <p>For the most talented artist & best friend ever</p>
+        <p className="subtitle">
+          For the most talented artist & best friend ever
+        </p>
 
         <button onClick={() => setShowSecret(true)}>Open Message 💌</button>
 
         {showSecret && (
-          <div id="secret">
+          <div className="secret">
             Happy Birthday, Manu.
             <br />
             Keep creating, keep dreaming, and keep being yourself.
@@ -100,9 +67,6 @@ export default function App() {
           onClick={openGift}
         />
       </header>
-
-      <h2 className="draw-title">Draw Something Bestie 🎨</h2>
-      <canvas ref={canvasRef} width={600} height={400} id="paint" />
     </div>
   );
 }
