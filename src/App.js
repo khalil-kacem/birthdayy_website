@@ -4,17 +4,19 @@ import "./App.css";
 export default function App() {
   const [showSecret, setShowSecret] = useState(false);
 
-  // Floating messages
   useEffect(() => {
+    // Show the secret message automatically after 2s
+    const timer = setTimeout(() => setShowSecret(true), 2000);
+
     const messages = [
-      "Manu, you are my favorite person in this universe 🌌",
-      "The world feels brighter with you in it ✨",
-      "So grateful to have you as my best friend 🌙",
-      "Manu, your presence brings calm and joy 🌠",
-      "Every moment is better when shared with you 🌟",
-      "You are a rare soul, Manu 💫",
-      "Lucky to walk through life with you 🤍",
-      "Manu, you truly make life beautiful 🌃",
+      "Manu, you are my favorite best friend 💖",
+      "Life feels lighter with you around, Manu ✨",
+      "So grateful to have you as my best friend 🌸",
+      "Manu, you truly mean a lot to me 😊",
+      "My best moments are shared with you 🎉",
+      "You make everything better, Manu 🌟",
+      "Lucky to call you my best friend 💕",
+      "Manu, you are one of the most important people in my life 🤍",
     ];
 
     const interval = setInterval(() => {
@@ -28,7 +30,10 @@ export default function App() {
       setTimeout(() => msg.remove(), 6000);
     }, 2500);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
   }, []);
 
   const openGift = () => {
@@ -45,21 +50,16 @@ export default function App() {
   return (
     <div className="App">
       <header className="hero">
-        <h1>For Manu, My Favorite Soul 🌌</h1>
+        <h1>To My Favorite Best Friend Manu 💖</h1>
         <p className="subtitle">
-          A small universe of words for someone truly special
+          For the most talented artist & best friend ever
         </p>
-
-        <button onClick={() => setShowSecret(true)}>
-          Reveal Message 💌
-        </button>
 
         {showSecret && (
           <div className="secret">
             Manu,<br />
-            You are not just my best friend — <br />
-            you are one of the brightest parts of my world. <br />
-            Thank you for existing and being you. 🌙
+            You are not just a friend — you are my favorite best friend. <br />
+            I’m really lucky to have you in my life.
           </div>
         )}
 
