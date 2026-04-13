@@ -6,8 +6,9 @@
 }
 
 body {
-  background: linear-gradient(120deg, #ffd6e8, #fff0f5);
+  background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
   overflow-x: hidden;
+  color: #e2e8f0;
 }
 
 /* HERO SECTION */
@@ -22,41 +23,47 @@ body {
 }
 
 h1 {
-  color: #ff2e63;
   font-size: clamp(32px, 8vw, 64px);
+  background: linear-gradient(90deg, #a5b4fc, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   margin-top: 15px;
   font-size: clamp(16px, 4vw, 22px);
   max-width: 600px;
+  color: #cbd5e1;
 }
 
+/* BUTTON */
 button {
   margin-top: 25px;
   padding: 14px 28px;
   border: none;
   border-radius: 30px;
-  background: #ff2e63;
+  background: linear-gradient(90deg, #6366f1, #06b6d4);
   color: white;
   font-size: 18px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* Secret Message */
+/* Secret Message (glass effect) */
 .secret {
   margin-top: 20px;
   font-size: 18px;
   max-width: 600px;
-  background: white;
-  padding: 15px 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 18px 24px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Gift */
@@ -65,19 +72,22 @@ button:hover {
   margin-top: 35px;
   cursor: pointer;
   transition: 0.4s;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
 .gift:hover {
-  transform: rotate(10deg) scale(1.1);
+  transform: rotate(12deg) scale(1.1);
 }
 
 /* Floating Messages */
 .message {
   position: fixed;
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
   padding: 10px 20px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   animation: fade 6s forwards;
   z-index: 1000;
   font-size: 14px;
@@ -106,6 +116,7 @@ button:hover {
   width: 10px;
   height: 10px;
   animation: fall 4s linear forwards;
+  border-radius: 50%;
 }
 
 @keyframes fall {
