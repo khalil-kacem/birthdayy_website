@@ -7,14 +7,14 @@ export default function App() {
   // Floating messages
   useEffect(() => {
     const messages = [
-      "Happy Birthday Manu 🎂",
-      "Enjoy your day Manu 🌸",
-      "Best wishes Manu ✨",
-      "Stay happy Manu 😊",
-      "Have a great year Manu 🎉",
-      "Keep smiling Manu 💖",
-      "Shine bright Manu 🌟",
-      "Lots of love Manu 💕",
+      "Manu, you are my favorite best friend 💖",
+      "Life feels lighter with you around, Manu ✨",
+      "So grateful to have you as my best friend 🌸",
+      "Manu, you truly mean a lot to me 😊",
+      "My best moments are shared with you 🎉",
+      "You make everything better, Manu 🌟",
+      "Lucky to call you my best friend 💕",
+      "Manu, you are one of the most important people in my life 🤍",
     ];
 
     const interval = setInterval(() => {
@@ -45,18 +45,21 @@ export default function App() {
   return (
     <div className="App">
       <header className="hero">
-        <h1>Happy Birthday Manu 🎨💖</h1>
+        <h1>To My Favorite Best Friend Manu 🎨💖</h1>
         <p className="subtitle">
           For the most talented artist & best friend ever
         </p>
 
-        <button onClick={() => setShowSecret(true)}>Open Message 💌</button>
+        <button onClick={() => setShowSecret(true)}>
+          Open Message 💌
+        </button>
 
         {showSecret && (
           <div className="secret">
-            Happy Birthday, Manu.
-            <br />
-            Keep creating, keep dreaming, and keep being yourself.
+            Manu,<br />
+            You are not just a friend — you are my favorite best friend. <br />
+            Thank you for always being there for me. <br />
+            I’m really lucky to have you in my life.
           </div>
         )}
 
